@@ -1,0 +1,29 @@
+
+<div class="app-nav margin" <%= tab_set('dashboard_tab', type: :ajax, default_tab: params[:dashboard_tab] || 'dashboard') %>>
+  <div class="pill margin" <%= tab_trigger 'news' %> href="<%= posts_path(post_tab: params[:post_tab]) %>">
+    News
+  </div>
+  <div class="pill margin" <%= tab_trigger 'friends' %> href="<%= friendships_path %>">
+    Friends
+  </div>
+  <div class="pill margin" <%= tab_trigger 'chats' %> href="<%= '' %>">
+    Chats
+  </div>
+  <div class="pill" <%= tab_trigger 'dashboard' %> href="<%= dashboard_stats_path %>">
+    Dashboard
+  </div>
+  <div class="pill right">
+    <%= link_to 'Logout', logout_path %>
+  </div>
+  <div class="span right match-pill"><%= @current_user.email %></div>
+</div>
+<div id="dashboard-content" class="row">
+  <div <%= tab_content("news") %>>
+  </div>
+  <div <%= tab_content("friends") %>>
+  </div>
+  <div <%= tab_content("chats") %>>
+  </div>
+  <div <%= tab_content("dashboard") %>>
+  </div>
+</div>

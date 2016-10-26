@@ -1,0 +1,11 @@
+<div class="row margin">
+  <%= ajax_link 'Add a Comment', new_comment_path(comment: {post_id: post.id}), {class: 'pill small'}, dom_target(post, :new_comment) %>
+</div>
+<div id="<%= dom_id(post, :new_comment) %>"></div>
+<div id="<%= dom_id(post, :comment_list) %>" class="row margin">
+  <% post.comments.each do |comment| %>
+    <%= render partial: '/comments/show', locals: {comment: comment}, layout: '/layouts/comments/show_wrapper' %>
+  <% end %>
+</div>
+<a <%= listener_attrs post, :load_comment, trigger: true %>
+  <%= ajax_link_attrs dom_target(post, :comment_list), insert_method: 'prepend' %> ></a>

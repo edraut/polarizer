@@ -1,0 +1,18 @@
+<div class="row margin">
+<h2>New Post Activity from Friends</h2>
+  <span <%= listener_attrs(@current_user, :new_post_count) %>><%= @current_user.new_post_count %></span>
+</div>
+<h2>New Comments on Your Posts</h2>
+  <span <%= listener_attrs(@current_user, :new_comment_count) %>><%= @current_user.new_comment_count %></span>
+</div>
+<div class="row margin">
+<h2>Requests for your Friendship</h2>
+  <span <%= listener_attrs(@current_user, :friendship_request_count) %>><%= @current_user.friendship_request_count %></span>
+</div>
+<div class="row margin">
+<h2>Your Pending Requests</h2>
+  <span <%= listener_attrs(@current_user, :pending_friendship_count) %>><%= @current_user.pending_friendship_count %></span>
+</div>
+<h2>New Posts</h2>
+<%= @current_user.new_posts.length %>
+</div>

@@ -1,0 +1,10 @@
+<div class="row margin">
+<%= ajax_link "Create a Post", new_post_path, {}, '#new_post_form' %>
+</div>
+<div id="new_post_form" class="row margin">
+</div>
+<div id="my_posts_list">
+  <% @posts.each do |post| %>
+    <%= render partial: 'show', locals: {post: post}, layout: '/layouts/posts/show_wrapper' %>
+  <% end %>
+</div>

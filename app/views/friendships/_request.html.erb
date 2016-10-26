@@ -1,0 +1,5 @@
+<div class="row margin">
+  <%= friendship.initiator.email %> is awaiting your response.
+
+  <%= ajax_link 'Accept Friendship Request', accept_friendship_path(friendship), {}, '#friendships_list', insert_method: 'append', http_method: :patch %>
+</div>

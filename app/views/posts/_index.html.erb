@@ -1,0 +1,15 @@
+<hr>
+<div class="app-nav margin" <%= tab_set('post_tab', type: :ajax, default_tab: params[:post_tab] || 'friend_posts') %>>
+  <div class="pill margin" <%= tab_trigger 'friend_posts' %> href="<%= friend_posts_path %>">
+    From Friends
+  </div>
+  <div class="pill margin" <%= tab_trigger 'my_posts' %> href="<%= my_posts_path %>">
+    My Posts
+  </div>
+</div>
+<div id="post-content" class="row">
+  <div <%= tab_content("friend_posts") %>>
+  </div>
+  <div <%= tab_content("my_posts") %>>
+  </div>
+</div>

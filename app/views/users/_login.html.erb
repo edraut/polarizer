@@ -1,0 +1,4 @@
+<%= simple_form_for @user, url: do_login_path, html: ajax_form_hash('#login_form_wrapper') do |f| %>
+  <%= f.input :email %>
+  <%= f.submit 'Login', class: 'pill small' %>
+<% end %>

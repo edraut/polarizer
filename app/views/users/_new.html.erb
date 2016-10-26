@@ -1,0 +1,4 @@
+<%= simple_form_for @user, url: create_user_path, html: ajax_form_hash('#new_user_form') do |f| %>
+  <%= render partial: 'fields', locals: {f: f} %>
+  <%= f.submit 'Sign Up', class: 'pill small' %>
+<% end %>

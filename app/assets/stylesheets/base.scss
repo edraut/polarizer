@@ -1,0 +1,101 @@
+body{
+  font-family: "Gill Sans MT", "Gill Sans", "Gill Sans Std", Helvetica, Arial, "Bitstream Vera Sans", sans-serif;
+}
+.container{
+  margin: 80px 250px;
+  @media screen and (max-width: 767px) {
+    margin: 80px 10px;
+  }
+  
+}
+.row {
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  width: 100%;
+  &.padding {
+    padding: 0px 20px;
+  }
+  &.right {
+    float: right;
+    text-align: right;
+  }
+  &.left {
+    text-align: left;
+    float: left;
+  }
+  &.margin {
+    margin-bottom: 1.2em;
+  }
+  &.border-bottom {
+    border-bottom: 1px solid $asphalt;
+  }
+}
+.span {
+  box-sizing: border-box;
+  margin-left: 0;
+  position: relative;
+  float: left;
+  &.right {
+    float: right;
+    text-align: right;
+    @media screen and (max-width: 479px) {
+      text-align: left;
+      float: left;
+    }
+   }
+  &.left {
+    text-align: left;
+    float: left;
+  }
+  .icon-separator {
+    display: inline-block;
+    width: 5px;
+  }
+  &.margin {
+    margin-right: 1em;
+  }
+}
+.pill{
+  @extend .span;
+  background-color: $off-white;
+  padding: 7px 14px;
+  border: 1px solid $hay-grey;
+  border-radius: 7px;
+  &.active{
+    border-color: $light-grey;
+    background-color: $sea-foam;
+  }
+  &.margin {
+    margin-right: 1em;
+  }
+  &.small {
+    padding: 5px 10px;
+  }
+}
+.match-pill{
+  padding: 8px 15px;
+}
+.well {
+  @extend .row;
+  border: 1px solid $asphalt;
+  padding: 20px;
+}
+.top-nav {
+  @extend .row
+}
+
+#hooch-modal {
+  background-color: white;
+  top: 50px;
+}
+#hooch-content {
+  margin: 80px 170px 60px 170px;
+}
+#hooch-dismiss {
+  margin-top: 20px;
+}
+hr.spacing{
+  border: none;
+  height: 1em;
+}

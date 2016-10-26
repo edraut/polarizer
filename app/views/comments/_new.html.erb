@@ -1,0 +1,11 @@
+<div class="well">
+  <%= simple_form_for @comment,
+        html: ajax_form_hash('',
+          error_target: dom_target(@comment.post, :new_comment),
+          empty_on_success: dom_target(@comment.post, :new_comment)) do |f| %>
+    <%= f.input :post_id, as: :hidden %>
+    <%= render partial: 'fields', locals: {f: f} %>
+    <%= f.submit "Publish Comment", class: 'pill small margin' %>
+    <a <%= emptier dom_target(@comment.post, :new_comment) %> class="pill small">close</a>
+  <% end %>
+</div>

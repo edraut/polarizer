@@ -1,0 +1,20 @@
+<div class="row margin">
+  <%= ajax_link 'Add a Friend', new_friendship_path, {}, '#new_friendship_form' %>
+</div>
+<div id="new_friendship_form">
+</div>
+<div id="friendships_list" class="row margin">
+  <% @friendships.each do |friendship| %>
+    <%= render partial: 'show', locals: {friendship: friendship}, layout: '/layouts/friendships/show_wrapper' %>
+  <% end %>
+</div>
+<div id="friendship_requests_list" class="row margin">
+  <% @friendship_requests.each do |friendship| %>
+    <%= render partial: 'request', locals: {friendship: friendship} %>
+  <% end %>
+</div>
+<div id="pending_friendships_list" class="row margin">
+  <% @pending_friendships.each do |friendship| %>
+    <%= render partial: 'pending', locals: {friendship: friendship} %>
+  <% end %>
+</div>

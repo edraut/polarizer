@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Polarizer</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag '//cdn.pubnub.com/pubnub-3.16.4.min.js' %>
+    <meta name="foreign_office:config" data-pubnub-publish-key="<%= ENV['PUBNUB_PUBLISH_KEY']%>" data-pubnub-subscribe-key="<%= ENV['PUBNUB_SUBSCRIBE_KEY']%>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div id="hooch-mask" style="display: none;">
+      <div id="hooch-modal">
+        <div id="hooch-dismiss">×</div>
+        <div id="hooch-content"></div>
+      </div>
+    </div>
+    <% if ENV['JAVASCRIPT_LOGGER']%>
+      <div data-debug_logger="true" data-logging_on="true"></div>
+    <% end %>
+    <div class="ajax-progress" style="display: none;" id="ajax_progress_container">
+      <%= image_tag '/ajax-loader.gif' %>
+    </div>
+    </body>
+</html>

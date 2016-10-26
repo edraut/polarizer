@@ -1,0 +1,5 @@
+<%= simple_form_for @post, html: ajax_form_hash(dom_target(post)) do |f| %>
+  <%= render partial: 'fields', locals: {f: f} %>
+  <%= f.submit 'Update Post', class: 'pill small' %>
+  <%= ajax_link 'cancel', post_path(post), {class: 'pill small'}, dom_target(post) %>
+<% end %>
