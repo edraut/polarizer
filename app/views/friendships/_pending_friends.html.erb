@@ -1,0 +1,3 @@
+<% @pending_friendships.each do |friendship| %>
+  <%= render partial: 'pending', locals: {friendship: friendship} %>
+<% end %>

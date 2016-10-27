@@ -6,6 +6,21 @@ class FriendshipsController < ApplicationController
     render_ajax
   end
 
+  def friends
+    @friendships = @current_user.friendships
+    render_ajax
+  end
+  
+  def friend_requests
+    @friendship_requests = @current_user.friendship_requests    
+    render_ajax
+  end
+
+  def pending_friends
+    @pending_friendships = @current_user.pending_friendships
+    render_ajax
+  end
+
   def new
     @friendship = Friendship.new(initiator_id: @current_user.id)
     sleep 5
@@ -17,7 +32,7 @@ class FriendshipsController < ApplicationController
     if @responder
       @friendship = CreateFriendship.new(initiator_id: @current_user.id, responder_id: @responder.id).call
       if @friendship.errors.empty?
-        render partial: 'pending', locals: {friendship: @friendship}
+        head :ok
       else
         render partial: 'new', status: 409
       end

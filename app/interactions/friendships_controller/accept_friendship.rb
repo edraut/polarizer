@@ -5,7 +5,13 @@ class FriendshipsController::AcceptFriendship
 
   def call
     @friendship.accept!
-    @friendship.members.each &:broadcast_change
+    @friendship.members.each do |user|
+      user.load_posts = true
+      user.load_pending_friends = true
+      user.load_friend_requests = true
+      user.load_friends = true
+      user.broadcast_change
+    end
     @friendship
   end
 end

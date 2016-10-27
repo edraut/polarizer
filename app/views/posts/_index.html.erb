@@ -8,7 +8,7 @@
   </div>
 </div>
 <div id="post-content" class="row">
-  <div <%= tab_content("friend_posts") %>>
+  <div <%= tab_content("friend_posts") %> <%= listener_attrs(@current_user, :load_posts, endpoint: friend_posts_path) %>>
   </div>
   <div <%= tab_content("my_posts") %>>
   </div>

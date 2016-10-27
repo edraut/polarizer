@@ -3,6 +3,8 @@ class Friendship < ApplicationRecord
   belongs_to :responder, class_name: 'User'
   has_one :chatroom, dependent: :destroy
 
+  validate :not_friends_with_self
+
   def other_id(user)
     return responder_id if user.id == initiator_id
     return initiator_id if user.id == responder_id
@@ -19,5 +21,9 @@ class Friendship < ApplicationRecord
 
   def accept!
     update accepted: true
+  end
+
+  def not_friends_with_self
+    errors.add(:responder_id, "You can't friend yourself") if responder_id == initiator_id
   end
 end

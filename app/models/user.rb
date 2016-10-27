@@ -10,6 +10,8 @@ class User < ApplicationRecord
   after_destroy :remove_friendships
 
   validates :email, presence: true, uniqueness: true
+
+  attr_accessor :load_posts, :load_friend_requests, :load_pending_friends, :load_friends
   
   def friendships
     Friendship.where("initiator_id = :id OR responder_id = :id", id: id).where(accepted: true)
@@ -48,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def friendship_requests
-    Friendship.where("responder_id = :id", id: id).where(accepted: false)
+    Friendship.where("responder_id = :id", id: self.id).where(accepted: false)
   end
 
   def friendship_request_count
@@ -56,7 +58,7 @@ class User < ApplicationRecord
   end
 
   def pending_friendships
-    Friendship.where("initiator_id = :id", id: id).where(accepted: false)
+    Friendship.where("initiator_id = :id", id: self.id).where(accepted: false)
   end
 
   def pending_friendship_count
@@ -80,6 +82,10 @@ class User < ApplicationRecord
       new_post_count: self.new_post_count,
       new_comment_count: self.new_comment_count,
       friendship_request_count: self.friendship_request_count,
-      pending_friendship_count: self.pending_friendship_count
+      pending_friendship_count: self.pending_friendship_count,
+      load_posts: self.load_posts,
+      load_friend_requests: self.load_friend_requests,
+      load_pending_friends: self.load_pending_friends,
+      load_friends: self.load_friends
   end
 end

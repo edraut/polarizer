@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   get '/friendships/new', to: 'friendships#new', as: :new_friendship
   post '/friendships', to: 'friendships#create', as: :create_friendship
   patch '/friendships/:id', to: 'friendships#accept', as: :accept_friendship
+  get '/friendships/friend_requests', to: 'friendships#friend_requests', as: :friend_requests
+  get '/friendships/pending_friends', to: 'friendships#pending_friends', as: :pending_friends
+  get '/friendships/friends', to: 'friendships#friends', as: :friends
 
   ###
   # Post routes

@@ -4,7 +4,10 @@
       <%= @friendship.errors.full_messages.join("<br>") %>
     </div>
   <% end %>
-  <%= form_for @friendship, html: ajax_form_hash('#pending_friendships_list', error_target: '#new_friendship_form', insert_method: 'append') do |f| %>
+  <%= form_for @friendship, html: ajax_form_hash('#pending_friendships_list', 
+        error_target: '#new_friendship_form',
+        insert_method: 'append',
+        empty_on_success: '#new_friendship_form') do |f| %>
     <div class="row margin">
       <%= label_tag :email %>
       <%= text_field_tag :email %>

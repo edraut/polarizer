@@ -1,0 +1,3 @@
+<% @friendships.each do |friendship| %>
+  <%= render partial: 'show', locals: {friendship: friendship}, layout: '/layouts/friendships/show_wrapper' %>
+<% end %>

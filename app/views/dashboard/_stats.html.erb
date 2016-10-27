@@ -13,6 +13,3 @@
 <h2>Your Pending Requests</h2>
   <span <%= listener_attrs(@current_user, :pending_friendship_count) %>><%= @current_user.pending_friendship_count %></span>
 </div>
-<h2>New Posts</h2>
-<%= @current_user.new_posts.length %>
-</div>

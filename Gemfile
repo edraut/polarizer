@@ -10,6 +10,7 @@ gem 'pubnub'
 gem 'thin_man', path: '~/projects/thin_man'
 gem 'foreign_office', path: '~/projects/foreign-office'
 gem 'hooch', path: '~/projects/hooch'
+gem 'pry'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
