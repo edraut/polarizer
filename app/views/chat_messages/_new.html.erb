@@ -1,0 +1,11 @@
+<div class="row">
+  <%= simple_form_for chat_message,
+        html: ajax_form_hash(dom_target(chat_message.chatroom, :new_chat_message),
+          error_target: dom_target(chat_message.chatroom, :new_chat_message)) do |f| %>
+    <%= f.input :chatroom_id, as: :hidden %>
+    <%= render partial: '/chat_messages/fields', locals: {f: f} %>
+    <div class="span">
+      <%= f.submit "Send", class: 'pill small margin' %>
+    </div>
+  <% end %>
+</div>

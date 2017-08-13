@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="span"><h2><%= chatroom.title %></h2></div>
+  <div class="span right" <%= tab_set(dom_id(chatroom, :tab), type: :ajax, default_tab: params[dom_id(chatroom, :tab).to_sym] || dom_id(chatroom, :conversation)) %>>
+    <div class="pill margin" <%= tab_trigger dom_id(chatroom, :conversation) %> href="<%= chat_messages_path(chatroom_id: chatroom.id) %>">conversation</div>
+    <div class="pill margin" <%= tab_trigger dom_id(chatroom, :members) %> href="<%= chat_participants_path(chatroom_id: chatroom.id) %>">members</div>
+  </div>
+</div>
+<div class="row" <%= tab_content(dom_id(chatroom, :conversation)) %>>
+</div>
+<div class="row" <%= tab_content(dom_id(chatroom, :members)) %>>
+</div>

@@ -47,4 +47,21 @@ Rails.application.routes.draw do
       get :show_wrapper
     end
   end
+
+  resources :chatrooms do
+    collection do
+      get :list
+    end
+  end
+
+  resources :chat_messages do
+    collection do
+      get :list
+    end
+  end
+  resources :chat_participants do
+    member do
+      get :show_wrapper
+    end
+  end
 end

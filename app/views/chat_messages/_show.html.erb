@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="chat-message-by">
+    <div class="chat-message-author">
+      <h3><%= chat_message.user_handle %></h3>
+    </div>
+    <div class="date">
+      <%= chat_message.updated_at.to_formatted_s(:short) %>
+    </div>
+  </div>
+  <div class="chat-message">
+    <%= chat_message.message %>
+  </div>
+</div>

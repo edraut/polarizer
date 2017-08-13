@@ -1,0 +1,14 @@
+<% if Rails.env.test? %>
+  foreign_office.config({
+    bus_name: 'TestBus',
+    disconnect_alert: 'You seem to have lost the connection to the InvitedHome site. Please check your internet connection. Thanks, -The InvitedHome Team.',
+    reconnect_alert: 'Your connection to the InvitedHome site has been restored. All site info should now be available. Thanks, -The InvitedHome Team.'
+  });
+<% else %>
+  foreign_office.config({
+    bus_name: 'PusherBus',
+    key: '<%= Pusher.key %>',
+    encrypted: true
+  });
+<% end %>
+foreign_office.bind_listeners()

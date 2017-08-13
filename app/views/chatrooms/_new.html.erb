@@ -1,0 +1,11 @@
+<div class="well">
+  <%= simple_form_for @chatroom,
+        html: ajax_form_hash('#chatroom-list',
+          insert_method: 'append',
+          error_target: '#new_chatroom_form',
+          empty_on_success: '#new_chatroom_form') do |f| %>
+    <%= render partial: 'fields', locals: {f: f} %>
+    <%= f.submit "Create Chatroom", class: 'pill small margin' %>
+    <a <%= emptier '#new_chatroom_form' %> class="pill small">close</a>
+  <% end %>
+</div>

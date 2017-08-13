@@ -1,0 +1,7 @@
+<% chat_messages = chatroom.chat_messages.order(created_at: :desc).limit(10).offset(scroll_pointer).to_a.reverse %>
+
+<% chat_messages.each do |chat_message| %>
+  <%= render partial: '/chat_messages/show',
+        locals: {chat_message: chat_message},
+        layout: '/layouts/chat_messages/show_wrapper' %>
+<% end %>

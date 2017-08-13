@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   def show
   end
 

@@ -1,0 +1,5 @@
+<% @chatrooms.each do |chatroom| %>
+  <%= render partial: 'show',
+        locals: {chatroom: chatroom, scroll_pointer: 0},
+        layout: '/layouts/chatrooms/show_wrapper' %>
+<% end %>

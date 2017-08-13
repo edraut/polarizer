@@ -1,0 +1,5 @@
+<div class="row margin">
+  <%= f.input :title %>
+  <label class="select optional" for="chatroom_friendship_id">Group/Private</label>
+  <%= f.input_field :friend_id, collection: current_user.friends, label_method: :handle, value_method: :id, prompt: 'Group' %>
+</div>

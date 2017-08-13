@@ -1,0 +1,7 @@
+<div class="row">
+  <%= ajax_link 'Create a new chat room', new_chatroom_path(chatroom: {friendship_id: nil}), {}, '#new_chatroom_form' %>
+</div>
+<div id="new_chatroom_form" class="row"></div>
+<div id="chatroom-list" class="row" <%= listener_attrs(@current_user, :load_chatrooms, endpoint: list_chatrooms_path) %>>
+  <%= render partial: 'list', locals: {chatrooms: @chatrooms} %>
+</div>

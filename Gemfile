@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
-
+ruby "2.4.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'simple_form'
-gem 'pubnub'
+gem 'pusher'
 gem 'thin_man', path: '~/projects/thin_man'
 gem 'foreign_office', path: '~/projects/foreign-office'
 gem 'hooch', path: '~/projects/hooch'
-gem 'pry'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

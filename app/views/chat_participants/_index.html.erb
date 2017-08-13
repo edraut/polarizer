@@ -1,0 +1,17 @@
+<div class="chat-participants">
+  <div id="<%= dom_id(chatroom, :participant_list) %>" class="row">
+    <% chatroom.chat_participants.each do |chat_participant| %>
+      <%= render partial: '/chat_participants/show',
+            locals: {chat_participant: chat_participant}, 
+            layout: '/layouts/chat_participants/show_wrapper' %>
+    <% end %>
+  </div>
+  <a <%= listener_attrs chatroom, :load_chat_participant, trigger: true %>
+    <%= ajax_link_attrs dom_target(chatroom, :participant_list), insert_method: 'append' %> ></a>
+  <div class="row" id="inviation_wrapper">
+    <% if friends_not_invited(chatroom).any? %>
+      <%= ajax_link 'invite a friend', new_chat_participant_path(chat_participant: {chatroom_id: chatroom.id}), {}, dom_target(chatroom, :invitation_form) %>
+    <% end %>
+    <div class="invitation-form" id="<%= dom_id(chatroom, :invitation_form) %>"></div>
+  </div>
+</div>

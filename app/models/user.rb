@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-  attr_accessor :load_posts, :load_friend_requests, :load_pending_friends, :load_friends
+  attr_accessor :load_posts, :load_friend_requests, :load_pending_friends,
+    :load_friends, :load_chatrooms
   
   def friendships
     Friendship.where("initiator_id = :id OR responder_id = :id", id: id).where(accepted: true)
@@ -84,6 +85,7 @@ class User < ApplicationRecord
       friendship_request_count: self.friendship_request_count,
       pending_friendship_count: self.pending_friendship_count,
       load_posts: self.load_posts,
+      load_chatrooms: self.load_chatrooms,
       load_friend_requests: self.load_friend_requests,
       load_pending_friends: self.load_pending_friends,
       load_friends: self.load_friends

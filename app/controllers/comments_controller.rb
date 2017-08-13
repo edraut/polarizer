@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_filter :get_comment, only: [:edit, :show, :show_wrapper] #, :update]
-  # before_filter :authorize, only: [:edit, :update]
+  before_action :get_comment, only: [:edit, :show, :show_wrapper] #, :update]
+  # before_action :authorize, only: [:edit, :update]
 
   def index
     render_ajax

@@ -2665,3 +2665,5 @@ D, [2016-10-26T20:06:02.742006 #69781] DEBUG -- pubnub: Event#handle_response
 D, [2016-10-26T20:06:02.742236 #69781] DEBUG -- pubnub: Event#add_common_data_to_envelopes
 D, [2016-10-26T20:06:02.742321 #69781] DEBUG -- pubnub: Response: [1,"Sent","14775339627173744"]
 D, [2016-10-26T20:06:02.742354 #69781] DEBUG -- pubnub: Firing callbacks
+E, [2017-08-04T17:20:01.918974 #67828] ERROR -- Pubnub: 
+E, [2017-08-04T17:20:02.174802 #67828] ERROR -- Pubnub: 

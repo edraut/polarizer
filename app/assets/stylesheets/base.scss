@@ -82,19 +82,28 @@ body{
   padding: 20px;
 }
 .top-nav {
-  @extend .row
+  @extend .row;
+}
+#hooch-mask{
+  background-color: rgba(192,192,192,0.9);
+  display: none;
 }
 
 #hooch-modal {
   background-color: white;
   top: 50px;
+  margin: 200px 100px;
+  padding: 40px;
 }
-#hooch-content {
-  margin: 80px 170px 60px 170px;
-}
+
 #hooch-dismiss {
-  margin-top: 20px;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  color: white;
+  font-size: 20px;
 }
+
 hr.spacing{
   border: none;
   height: 1em;

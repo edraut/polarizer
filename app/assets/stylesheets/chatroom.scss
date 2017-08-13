@@ -1,0 +1,33 @@
+.chatroom{
+  @extend .row;
+  @extend .well;
+  @extend .margin;
+  height: 300px;
+  bottom: 0;
+  overflow-x: scroll;
+}
+.chat-message{
+  @extend .row;
+  font-size: 16px;
+}
+.chat-message-author {
+  @extend .span;
+  @extend .margin;
+  h3 { color: $light-grey; }
+}
+.chat-message-by {
+  @extend .row;
+  .date {
+    @extend .span;
+    @extend .right;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: $light-grey;
+  }
+}
+.chat-participants {
+  @extend .row;
+  @extend .well;
+  @extend .margin;
+}

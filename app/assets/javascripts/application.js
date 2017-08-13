@@ -17,17 +17,7 @@
 //= require hooch
 //= require anytime_manager
 //= require foreign_office
-$(document).ready(function(){
-  pubnub_publish_key = $("[data-pubnub-publish-key]").data('pubnub-publish-key')
-  pubnub_subscribe_key = $("[data-pubnub-subscribe-key]").data('pubnub-subscribe-key')
-  foreign_office.config({
-    bus_name: 'PubnubBus',
-    publish_key: pubnub_publish_key,
-    subscribe_key: pubnub_subscribe_key,
-    ssl: true,
-    disconnect_alert: 'You seem to have lost the connection to Polarizer. Please check your internet connection. Thanks, -Polarizer.',
-    reconnect_alert: 'Your connection to the Polarizer site has been restored. All site info should now be available. Thanks, -Polarizer.'
-  });
-  foreign_office.bind_listeners()
+//= require chatroom
+//= require initializers
 
-})
+window.any_time_manager.registerList(['room-scroller'], 'chatroom');

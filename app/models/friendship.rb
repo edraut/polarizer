@@ -19,6 +19,10 @@ class Friendship < ApplicationRecord
     [initiator,responder]
   end
 
+  def member_ids
+    [initiator_id,responder_id]
+  end
+
   def accept!
     update accepted: true
   end

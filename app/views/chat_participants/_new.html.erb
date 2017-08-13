@@ -1,0 +1,13 @@
+<div class="row">
+  <%= simple_form_for chat_participant,
+        html: ajax_form_hash(dom_target(chat_participant.chatroom, :invitation_form),
+          error_target: dom_target(chat_participant.chatroom, :invitation_form),
+          insert_method: 'append') do |f| %>
+    <%= f.input :chatroom_id, as: :hidden %>
+    <%= render partial: '/chat_participants/fields', locals: {f: f} %>
+    <div class="span">
+      <%= f.submit "Invite", class: 'pill small margin' %>
+    </div>
+    <a <%= emptier dom_target(chat_participant.chatroom, :invitation_form) %> class="pill small">close</a>
+  <% end %>
+</div>

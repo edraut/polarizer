@@ -4,13 +4,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :post_views
-  has_one :post_activity
-
-  after_save :refresh_activity
 
   attr_accessor :load_comment
-
-  delegate :last_activity_time, to: :post_activity
 
   def comment_changed
     refresh_activity
@@ -28,9 +23,8 @@ class Post < ApplicationRecord
     comments.update_all(author_viewed: true)
   end
 
-  def refresh_activity
-    post_views.destroy_all
-    PostActivity.refresh
+  def last_activity_time
+    comments.maximum(:updated_at) || updated_at
   end
 
   def serialize
