@@ -7,9 +7,9 @@ gem 'rails'
 gem 'pg'
 gem 'simple_form'
 gem 'pusher'
-gem 'thin_man', path: '~/projects/thin_man'
-gem 'foreign_office', path: '~/projects/foreign-office'
-gem 'hooch', path: '~/projects/hooch'
+gem 'thin_man'
+gem 'foreign_office'
+gem 'hooch'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
