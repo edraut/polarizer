@@ -7,18 +7,18 @@ class PostsController < ApplicationController
   end
 
   def friend
-    @posts = ViewFriendPosts.new(@current_user).call
-    render_ajax
+    friend_posts = ViewFriendPosts.new(@current_user).call
+    render_ajax locals: {friend_posts: friend_posts}
   end
 
   def my
-    @posts = ViewMyPosts.new(@current_user).call
-    render_ajax
+    my_posts = ViewMyPosts.new(@current_user).call
+    render_ajax locals: {my_posts: my_posts}
   end
 
   def new
-    @post = Post.new(user_id: @current_user)
-    render_ajax
+    post = Post.new(user_id: @current_user)
+    render_ajax locals: {post: post}
   end
 
   def create

@@ -1,11 +1,11 @@
-<div class="row">
+<div class="comment">
   <div class="comment-author">
     <%= comment.user.email %> says...
   </div>
   <div class="span">
     <%= comment.body %>
   </div>
-  <div class="span right">
+  <div class="comment-time">
     <%= comment.created_at.to_formatted_s(:short) %>
   </div>
 </div>

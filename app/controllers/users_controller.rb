@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       attach_session
       render json: {class_triggers: {"hooch.ReloadPage" => dashboard_path}}
     else
-      render partial: 'new', status: 409
+      render partial: 'new', status: :conflict
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     else
       @user = User.new
       @user.errors.add(:email, 'Email is required to login.')
-      render partial: 'login', status: 409
+      render partial: 'login', status: :conflict
     end
   end
 

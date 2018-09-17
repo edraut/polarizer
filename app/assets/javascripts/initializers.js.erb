@@ -8,7 +8,8 @@
   foreign_office.config({
     bus_name: 'PusherBus',
     key: '<%= Pusher.key %>',
-    encrypted: true
+    encrypted: true,
+    cluster: '<%= ENV['PUSHER_CLUSTER'] %>'
   });
 <% end %>
 foreign_office.bind_listeners()

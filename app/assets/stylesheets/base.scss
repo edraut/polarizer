@@ -57,12 +57,14 @@ body{
   }
 }
 .pill{
+  cursor: pointer;
   @extend .span;
-  background-color: $off-white;
+  background-color: white;
   padding: 7px 14px;
-  border: 1px solid $hay-grey;
+  border: 1px solid $light-grey;
   border-radius: 7px;
   &.active{
+    cursor: initial;
     border-color: $light-grey;
     background-color: $sea-foam;
   }
@@ -107,4 +109,8 @@ body{
 hr.spacing{
   border: none;
   height: 1em;
+}
+.error {
+  background-color: pink;
+  padding: .2em .5em;
 }

@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby "2.4.1"
+ruby "2.5.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '5.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'simple_form'
@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -34,7 +35,9 @@ gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+	gem 'dotenv-rails'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :development do

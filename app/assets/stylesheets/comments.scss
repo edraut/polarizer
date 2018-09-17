@@ -2,7 +2,12 @@
   @extend .row;
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 1em;
 }
-.comment-author {
+.comment-author, .comment-time {
   color: $grey;
+}
+.comment-time {
+	@extend .span;
+	@extend .right;
 }

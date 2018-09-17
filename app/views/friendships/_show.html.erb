@@ -1,1 +1,1 @@
-You are friends with <%= friendship.friend_for(@current_user).email %>.
+You are friends with <%= friendship.friend_for(@current_user).email %>. <%= ajax_delete 'end friendship', end_friendship_path(friendship), {}, '#friendships_list' %>

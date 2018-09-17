@@ -5,9 +5,8 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag "//js.pusher.com/4.1/pusher.min.js" %>
+    <%= javascript_include_tag "//js.pusher.com/4.3/pusher.min.js" %>
     <%= javascript_include_tag 'application' %>
-    <meta name="foreign_office:config" data-pubnub-publish-key="<%= ENV['PUBNUB_PUBLISH_KEY']%>" data-pubnub-subscribe-key="<%= ENV['PUBNUB_SUBSCRIBE_KEY']%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   </head>
 

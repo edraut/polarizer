@@ -22,30 +22,29 @@ class FriendshipsController < ApplicationController
   end
 
   def new
-    @friendship = Friendship.new(initiator_id: @current_user.id)
-    sleep 5
-    render_ajax
+    friendship = Friendship.new(initiator_id: @current_user.id)
+    render_ajax locals: {friendship: friendship}
   end
 
   def create
-    @responder = User.find_by(email: params[:email])
-    if @responder
-      @friendship = CreateFriendship.new(initiator_id: @current_user.id, responder_id: @responder.id).call
-      if @friendship.errors.empty?
-        head :ok
-      else
-        render partial: 'new', status: 409
-      end
-    else
-      @friendship = Friendship.new(initiator_id: @current_user.id)
-      @friendship.errors.add(:base, "We couldn't find the user with the email #{params[:email]}")
-      render partial: 'new', status: 409      
+    friendship_creator = FriendshipCreator.new(params.merge(initiator_id: @current_user.id))
+    friendship_creator.create
+    case friendship_creator.status
+    when :success
+      head :ok
+    when :error
+      render partial: 'new', locals: {friendship: friendship_creator.friendship}, status: :conflict
     end
   end
 
   def accept
-    @friendship = Friendship.find(params[:id])
-    AcceptFriendship.new(@friendship).call
-    render partial: 'show', locals: {friendship: @friendship}
+    friendship_accepter = FriendshipAccepter.new(params)
+    friendship_accepter.accept
+    render partial: 'show', locals: {friendship: friendship_accepter.friendship}
+  end
+
+  def destroy
+    FriendshipEnder.new(params).end_friendship
+    head :ok
   end
 end

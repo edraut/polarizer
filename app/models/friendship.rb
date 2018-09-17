@@ -23,11 +23,7 @@ class Friendship < ApplicationRecord
     [initiator_id,responder_id]
   end
 
-  def accept!
-    update accepted: true
-  end
-
   def not_friends_with_self
-    errors.add(:responder_id, "You can't friend yourself") if responder_id == initiator_id
+    errors.add(:base, "You can't friend yourself") if responder_id == initiator_id
   end
 end

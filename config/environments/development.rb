@@ -54,7 +54,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  Pusher.app_id = ENV['PUSHER_APP_ID']
-  Pusher.key = ENV['PUSHER_KEY']
-  Pusher.secret = ENV['PUSHER_SECRET']
 end

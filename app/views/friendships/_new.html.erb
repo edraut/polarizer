@@ -1,10 +1,10 @@
 <div class="well">
-  <% if @friendship.errors.any? %>
+  <% if friendship.errors.any? %>
     <div class="error">
-      <%= @friendship.errors.full_messages.join("<br>") %>
+      <%= friendship.errors.full_messages.join("<br>") %>
     </div>
   <% end %>
-  <%= form_for @friendship, html: ajax_form_hash('#pending_friendships_list', 
+  <%= form_for friendship, html: ajax_form_hash('#pending_friendships_list', 
         error_target: '#new_friendship_form',
         insert_method: 'append',
         empty_on_success: '#new_friendship_form') do |f| %>

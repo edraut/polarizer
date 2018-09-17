@@ -25,27 +25,6 @@ class ChatroomsController < ApplicationController
     end
   end
 
-  def show
-    render_ajax locals: {chatroom: @chatroom}
-  end
-
-  def edit
-    render_ajax locals: {chatroom: @chatroom}
-  end
-
-  def update
-    @chatroom.update_attributes(chatroom_params)
-    if @chatroom.errors.empty?
-      render partial: 'show', locals: {chatroom: @chatroom}
-    else
-      render partial: 'edit', locals: {chatroom: @chatroom}, status: 409
-    end
-  end
-
-  def show_wrapper
-    render partial: 'show', locals: {chatroom: @chatroom}, layout: '/layouts/chatrooms/show_wrapper'
-  end
-
   protected
 
   def chatroom_params

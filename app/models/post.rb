@@ -4,11 +4,12 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :post_views
+  has_one :post_activity
 
   attr_accessor :load_comment
 
   def comment_changed
-    refresh_activity
+    # post_activity.refresh
   end
 
   def new_to(user)

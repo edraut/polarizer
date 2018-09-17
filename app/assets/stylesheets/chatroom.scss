@@ -1,33 +1,54 @@
-.chatroom{
+.chatroom {
+  background-color: $off-white;
   @extend .row;
-  @extend .well;
   @extend .margin;
-  height: 300px;
-  bottom: 0;
-  overflow-x: scroll;
-}
-.chat-message{
-  @extend .row;
-  font-size: 16px;
-}
-.chat-message-author {
-  @extend .span;
-  @extend .margin;
-  h3 { color: $light-grey; }
-}
-.chat-message-by {
-  @extend .row;
-  .date {
+  padding: 1em;
+
+  .expand-collapse {
     @extend .span;
-    @extend .right;
-    font-size: 12px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    color: $light-grey;
+    font-size: 2em;
+    margin-right: 7px;
+    cursor: pointer;
   }
-}
-.chat-participants {
-  @extend .row;
-  @extend .well;
-  @extend .margin;
+  .expander {
+    @extend .expand-collapse;
+  }
+  .collapser {
+    @extend .expand-collapse;
+    display: none;
+  }
+  .chatroom-content{
+    @extend .row;
+    @extend .well;
+    @extend .margin;
+    height: 300px;
+    bottom: 0;
+    overflow-x: scroll;
+  }
+
+  .chat-message{
+    @extend .row;
+    font-size: 16px;
+  }
+  .chat-message-author {
+    @extend .span;
+    @extend .margin;
+    h3 { color: $light-grey; }
+  }
+  .chat-message-by {
+    @extend .row;
+    .date {
+      @extend .span;
+      @extend .right;
+      font-size: 12px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      color: $light-grey;
+    }
+  }
+  .chat-participants {
+    @extend .row;
+    @extend .well;
+    @extend .margin;
+  }  
 }

@@ -2,13 +2,9 @@ class CommentsController < ApplicationController
   before_action :get_comment, only: [:edit, :show, :show_wrapper] #, :update]
   # before_action :authorize, only: [:edit, :update]
 
-  def index
-    render_ajax
-  end
-
   def new
-    @comment = Comment.new(comment_params)
-    render_ajax
+    comment = Comment.new(comment_params)
+    render_ajax locals: {comment: comment}
   end
 
   def create
@@ -18,10 +14,6 @@ class CommentsController < ApplicationController
     else
       render partial: 'new', locals: {comment: @comment}, status: 409
     end
-  end
-
-  def show
-    render_ajax
   end
 
   def show_wrapper

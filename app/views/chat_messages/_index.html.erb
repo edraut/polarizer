@@ -1,4 +1,4 @@
-<div id="<%= dom_id(chatroom, :message_list) %>" class="chatroom" <%= listener_attrs chatroom, :load_messages, endpoint: list_chat_messages_path(chatroom_id: chatroom.id) %> data-room-scroller>
+<div id="<%= dom_id(chatroom, :message_list) %>" class="chatroom-content" <%= listener_attrs chatroom, :load_messages, endpoint: list_chat_messages_path(chatroom_id: chatroom.id) %> data-room-scroller>
   <%= render partial: '/chat_messages/list', locals: {chatroom: chatroom, scroll_pointer: scroll_pointer} %>
 </div>
 <div id="<%= dom_id(chatroom, :new_chat_message) %>" class="row">
